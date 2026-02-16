@@ -1,251 +1,262 @@
 # 🏭 Smart Factory Floor Assistant
 
-A multi-agent manufacturing POC built with Google ADK (Agent Development Kit). Features 3 specialist agents orchestrated by a root agent, running completely free using Gemini's free tier.
+**A multi-agent AI system for intelligent manufacturing operations using Google ADK**
 
-## 🎯 Overview
+Built with Google Agent Development Kit (ADK) and Gemini 2.5 Flash, this POC demonstrates how multiple specialized AI agents can coordinate to provide real-time factory floor intelligence.
 
-This system simulates a smart factory monitoring assistant with:
-- **Production Specialist Agent**: Monitors production lines, efficiency, and operations
-- **Maintenance Specialist Agent**: Tracks machine faults and maintenance schedules
-- **Quality Specialist Agent**: Analyzes quality inspections and defect trends
-- **Root Orchestrator Agent**: Coordinates specialists and provides unified intelligence
+---
+
+## 🎯 What It Does
+
+The Smart Factory Floor Assistant answers complex manufacturing questions by orchestrating three specialist agents:
+
+- **Production Monitor Agent** - Line status, OEE metrics, shift attainment
+- **Maintenance Agent** - Fault diagnosis, error codes, SOPs, maintenance history  
+- **Quality Agent** - Defect analysis, batch disposition, quality trends
+
+### Example Queries
+
+```
+"Give me a complete shift status report"
+→ Automatically coordinates all 3 agents to provide production, maintenance, and quality insights
+
+"Line 3 is down with error code E-412. What's wrong?"
+→ Maintenance agent provides root cause, corrective action, parts list, and safety procedures
+
+"Should we release Batch B-2041?"
+→ Quality agent analyzes defect rate and recommends disposition (RELEASE/REWORK/SCRAP)
+```
+
+---
+
+## 🏗️ Architecture
+
+```
+Root Agent (factory_floor_agent)
+├── Tool: get_shift_performance_report()
+│
+├── Production Monitor Agent
+│   ├── get_production_status()
+│   └── get_active_alarms()
+│
+├── Maintenance Agent
+│   ├── get_fault_details()
+│   └── get_maintenance_history()
+│
+└── Quality Agent
+    └── get_quality_summary()
+```
+
+**6 Tools** accessing mock JSON data (easily replaced with real MES/ERP APIs)
+
+---
+
+## 📊 Mock Data
+
+Realistic manufacturing scenarios for demos:
+
+- **4 Production Lines** - Line_1 through Line_4 with OEE, targets, alarms
+- **8 Error Codes** - Full diagnostics (E-412: Hydraulic failure, E-201: Conveyor issue, etc.)
+- **6 Machines** - 30 maintenance events (preventive, corrective, emergency)
+- **6 Quality Batches** - Varying defect rates (0.4% to 12.3%)
+
+### Critical Issues in Demo Data
+- Line_3: DOWN with E-412 (hydraulic pump failure)
+- Line_4: Running but OEE 67% (below 70% threshold)
+- Batch B-2041: 7.5% defect rate → REWORK needed
+- Batch B-2044: 12.3% defect rate → SCRAP ($6,015 loss)
+
+---
+
+## 🚀 Quick Start
+
+### 1. Get Free API Key
+Visit https://aistudio.google.com/apikey (no credit card needed!)
+
+### 2. Install Dependencies
+```bash
+pip install google-adk>=0.5.0
+```
+
+### 3. Configure API Key
+```bash
+cp .env.example .env
+# Edit .env and add your API key
+```
+
+### 4. Run the Assistant
+```bash
+adk web
+```
+
+Open http://localhost:8000 and select `factory_floor_agent`
+
+---
+
+## 🎬 Demo Queries
+
+Copy these into the ADK web UI:
+
+**Query 1 (Warm-up):**
+```
+Which production lines are currently running and which are down?
+```
+
+**Query 2 (Fault Diagnosis):**
+```
+Line 3 is down with error code E-412. What's wrong and what does the maintenance team need to do?
+```
+
+**Query 3 (Quality Decision):**
+```
+Should we release Batch B-2041? Give me your recommendation.
+```
+
+**Query 4 (Analysis):**
+```
+Line 4 has an OEE of 67%. Walk me through what that means and what we should investigate.
+```
+
+**Query 5 (🌟 THE SHOWSTOPPER - Multi-Agent):**
+```
+Give me a complete shift status report — production performance, any active faults, and quality summary. What are the top 3 things I need to act on right now?
+```
+
+**After Query 5, click the "Trace" tab** to see how the root agent coordinated all 3 specialists!
+
+---
 
 ## 📁 Project Structure
 
 ```
 smart_factory_poc/
-├── .env                          # API key configuration
-├── requirements.txt              # Python dependencies
-├── README.md                     # This file
-├── data/                         # Mock factory data (simulates MES/ERP)
-│   ├── production_lines.json    # Production line status & metrics
-│   ├── machine_faults.json      # Machine fault records
-│   ├── maintenance_history.json # Maintenance schedules & history
-│   └── quality_logs.json        # Quality inspection data
-└── factory_agent/
+├── .env.example              # API key template
+├── .gitignore                # Protects .env from commits
+├── requirements.txt          # google-adk>=0.5.0
+├── SETUP_GUIDE.md           # Detailed setup instructions
+├── QUICK_START.txt          # Visual quick start guide
+├── test_agent_system.py     # Verification tests
+├── data/                    # Mock manufacturing data
+│   ├── production_lines.json
+│   ├── machine_faults.json
+│   ├── maintenance_history.json
+│   └── quality_logs.json
+└── factory_agent/           # Multi-agent system
     ├── __init__.py
-    ├── agent.py                 # Multi-agent system definition
-    └── tools.py                 # Factory data access tools
+    ├── tools.py             # 6 data access functions
+    └── agent.py             # 4 ADK agents
 ```
-
-## 🚀 Quick Start
-
-### 1. Get a Free Google API Key
-
-1. Visit [Google AI Studio](https://aistudio.google.com/apikey)
-2. Sign in with your Google account
-3. Click "Create API Key"
-4. Copy the key
-
-### 2. Install Dependencies
-
-```bash
-cd smart_factory_poc
-pip install -r requirements.txt
-```
-
-### 3. Configure API Key
-
-Edit `.env` file and add your API key:
-
-```bash
-GOOGLE_API_KEY=your_actual_api_key_here
-```
-
-### 4. Run the Assistant
-
-```bash
-python -m factory_agent.agent
-```
-
-## 💬 Example Queries
-
-Once running, try these questions:
-
-**General Status:**
-- "What's the factory status?"
-- "Give me an overview of all production lines"
-- "What's the overall efficiency?"
-
-**Production Questions:**
-- "What's the status of LINE-A2?"
-- "Which production line is most efficient?"
-- "Why is LINE-A2 running slower than target?"
-
-**Maintenance Questions:**
-- "Show me all open machine faults"
-- "Any critical issues I should know about?"
-- "What maintenance is scheduled this week?"
-- "What's wrong with machine M005?"
-
-**Quality Questions:**
-- "Show me recent quality inspections"
-- "Are there any failed inspections?"
-- "What's the defect rate for LINE-A2?"
-- "Which line has quality issues?"
-
-**Cross-Functional Analysis:**
-- "Why is LINE-A2 underperforming?" (triggers Production + Maintenance + Quality analysis)
-- "What's affecting our efficiency today?"
-- "Investigate the issues on LINE-B1"
-
-## 🧠 How It Works
-
-### Multi-Agent Architecture
-
-```
-┌─────────────────────────────────────────┐
-│   Root Agent (Orchestrator)             │
-│   - Routes queries to specialists       │
-│   - Synthesizes multi-agent responses   │
-│   - Provides factory overview           │
-└─────────────────┬───────────────────────┘
-                  │
-        ┌─────────┼─────────┐
-        │         │         │
-        ▼         ▼         ▼
-┌──────────┐ ┌──────────┐ ┌──────────┐
-│Production│ │Maintenance│ │Quality   │
-│Specialist│ │Specialist │ │Specialist│
-└────┬─────┘ └────┬──────┘ └────┬─────┘
-     │            │             │
-     └────────────┴─────────────┘
-                  │
-          ┌───────▼────────┐
-          │  Factory Tools  │
-          │  (JSON Data)    │
-          └────────────────┘
-```
-
-### Agent Responsibilities
-
-**Root Agent:**
-- Understands user intent
-- Routes to appropriate specialist(s)
-- Coordinates multi-specialist queries
-- Provides context and actionable insights
-
-**Production Specialist:**
-- Production line monitoring
-- Efficiency analysis
-- Throughput tracking
-- Operator information
-
-**Maintenance Specialist:**
-- Fault diagnosis
-- Maintenance scheduling
-- Equipment health
-- Preventive maintenance
-
-**Quality Specialist:**
-- Inspection analysis
-- Defect tracking
-- Standards compliance
-- Quality trends
-
-### Data Tools
-
-All agents access factory data through structured tools that simulate real MES/ERP system queries:
-
-- `get_production_line_status()` - Line operations
-- `get_line_efficiency()` - Performance metrics
-- `get_machine_faults()` - Equipment issues
-- `get_maintenance_history()` - Service records
-- `get_quality_inspections()` - QA data
-- `get_factory_overview()` - Overall status
-
-## 🎨 Customization
-
-### Add More Mock Data
-
-Edit JSON files in `data/` directory to simulate different scenarios:
-- Add more production lines
-- Create new fault conditions
-- Add inspection failures
-- Schedule maintenance
-
-### Add New Tools
-
-In `factory_agent/tools.py`, create new functions and add them to specialist agents.
-
-### Add New Specialist Agents
-
-In `factory_agent/agent.py`, create a new specialist using `genai.Agent()` and add it to the root agent's `agents=[]` list.
-
-### Modify Agent Personalities
-
-Edit the `instructions` parameter in each agent's creation to change expertise and behavior.
-
-## 📊 Mock Data Scenarios
-
-The included data simulates a realistic factory scenario:
-
-**Production Lines:**
-- LINE-A1: Running at 95.8% efficiency
-- LINE-A2: Running at 90% efficiency (sensor issue on M005)
-- LINE-B1: Warning status (material feed issues)
-- LINE-C1: Stopped for scheduled maintenance
-
-**Active Issues:**
-- M005: Temperature sensor malfunction (medium severity)
-- M008: Material feed jamming (low severity)
-
-**Quality Alerts:**
-- LINE-A2: Failed inspection with 8% defect rate (above 5% threshold)
-
-## 🔧 Troubleshooting
-
-**"API Key not set" error:**
-- Make sure `.env` file exists and contains your API key
-- Check that the key is not "your_api_key_here"
-
-**Import errors:**
-- Run `pip install -r requirements.txt`
-- Make sure you're in the project directory
-
-**Agent not responding:**
-- Check your internet connection (needs to reach Google's API)
-- Verify API key is valid at [Google AI Studio](https://aistudio.google.com/apikey)
-
-**"Model not found" error:**
-- The free tier uses `gemini-2.0-flash-exp`
-- Check [Google's model documentation](https://ai.google.dev/gemini-api/docs/models) for current available models
-
-## 💡 Next Steps
-
-**Enhance the POC:**
-1. Add more data sources (inventory, supply chain, energy usage)
-2. Create visualization dashboard
-3. Add predictive analytics (predict failures, optimize schedules)
-4. Implement write operations (create work orders, update schedules)
-5. Add real-time data streaming simulation
-6. Connect to actual MES/ERP systems
-
-**Deploy for Real Use:**
-1. Replace JSON files with database connections
-2. Add authentication and authorization
-3. Create web interface or Slack/Teams integration
-4. Add audit logging and compliance tracking
-5. Implement alerts and notifications
-
-## 📝 License
-
-This is a proof-of-concept demonstration. Modify and use as needed for your projects.
-
-## 🤝 Contributing
-
-This is a demo project, but feel free to fork and extend it! Ideas:
-- Add more specialist agents (logistics, energy, safety)
-- Create web UI with real-time updates
-- Add data visualization charts
-- Implement voice interface
-- Create mobile app integration
 
 ---
 
-**Built with:**
-- [Google ADK](https://github.com/google/genai-sdk-python) - Agent Development Kit
-- [Gemini 2.0 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-v2) - Google's latest AI model
-- Python 3.8+
+## 💰 Cost
 
-**Zero Cost:** Runs entirely on Gemini's free tier! 🎉
+**$0** - Uses Gemini 2.5 Flash free tier via Google AI Studio
+
+---
+
+## 🚀 Production Deployment
+
+### Replace Mock Data with Real APIs
+
+Edit `factory_agent/tools.py`:
+```python
+def get_production_status(line_id: str = "all") -> dict:
+    # Replace this:
+    data = load_json_data("production_lines.json")
+    
+    # With this:
+    response = requests.get(f"{MES_API_URL}/lines/{line_id}")
+    data = response.json()
+```
+
+### Deploy Options
+
+**Recommended: Google Cloud Run**
+```bash
+# See deployment guide for full instructions
+gcloud run deploy factory-assistant \
+  --source . \
+  --platform managed \
+  --region us-central1
+```
+
+**Alternatives:**
+- Railway.app (most Vercel-like)
+- Render.com (free tier available)
+- Fly.io (global edge deployment)
+
+See deployment cost comparison in docs.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Google ADK** (Agent Development Kit) - Multi-agent orchestration
+- **Gemini 2.5 Flash** - Fast, cost-effective LLM
+- **Python 3.11+** - Backend
+- **FastAPI** (via ADK) - Web server
+- **JSON** - Mock data (replace with your MES/ERP)
+
+---
+
+## 📖 Documentation
+
+- **SETUP_GUIDE.md** - Complete installation guide
+- **QUICK_START.txt** - Visual quick start with demo queries
+- **Deployment Guide** - Production deployment options (coming soon)
+
+---
+
+## 🎯 Use Cases
+
+**Perfect for:**
+- Manufacturing POCs and demos
+- Factory digitalization pilots
+- MES/ERP system integration examples
+- Multi-agent AI demonstrations
+- Google ADK learning projects
+
+**Next Steps:**
+- Connect to real MES/ERP systems
+- Add predictive maintenance models
+- Integrate with SCADA systems
+- Deploy to Vertex AI Agent Engine
+
+---
+
+## 🤝 Contributing
+
+This is a POC/demo project. Feel free to:
+- Fork and adapt for your manufacturing domain
+- Replace mock data with real integrations
+- Extend with additional agents (safety, inventory, scheduling, etc.)
+- Deploy to production with real data
+
+---
+
+## 📄 License
+
+MIT License - See LICENSE file
+
+---
+
+## 🙏 Acknowledgments
+
+- Built with Google Agent Development Kit (ADK)
+- Powered by Gemini 2.5 Flash
+- Mock data designed for realistic manufacturing scenarios
+
+---
+
+## 📧 Questions?
+
+Open an issue or check the SETUP_GUIDE.md for detailed instructions.
+
+**Get your free API key:** https://aistudio.google.com/apikey
+
+---
+
+Made with ❤️ for the manufacturing community
+
+**Co-Authored-By: Claude Sonnet 4.5**
