@@ -1,0 +1,46 @@
+{
+  "Line_1": {
+    "line_id": "Line_1",
+    "status": "RUNNING",
+    "oee": 84,
+    "shift_target": 1200,
+    "units_produced": 876,
+    "active_alarm": null,
+    "product_type": "Widget-A",
+    "shift_start": "2024-02-15T06:00:00Z",
+    "operator_name": "John Martinez"
+  },
+  "Line_2": {
+    "line_id": "Line_2",
+    "status": "RUNNING",
+    "oee": 91,
+    "shift_target": 1000,
+    "units_produced": 940,
+    "active_alarm": null,
+    "product_type": "Widget-B",
+    "shift_start": "2024-02-15T06:00:00Z",
+    "operator_name": "Sarah Chen"
+  },
+  "Line_3": {
+    "line_id": "Line_3",
+    "status": "DOWN",
+    "oee": 0,
+    "shift_target": 800,
+    "units_produced": 312,
+    "active_alarm": "E-412",
+    "product_type": "Widget-C",
+    "shift_start": "2024-02-15T06:00:00Z",
+    "operator_name": "Mike Thompson"
+  },
+  "Line_4": {
+    "line_id": "Line_4",
+    "status": "RUNNING",
+    "oee": 67,
+    "shift_target": 600,
+    "units_produced": 401,
+    "active_alarm": "E-201",
+    "product_type": "Widget-D",
+    "shift_start": "2024-02-15T06:00:00Z",
+    "operator_name": "Lisa Patel"
+  }
+}

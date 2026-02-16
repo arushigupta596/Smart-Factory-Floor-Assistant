@@ -1,0 +1,101 @@
+{
+  "current_shift": {
+    "batches_inspected": 6,
+    "total_units": 4800,
+    "total_defects": 185,
+    "defect_rate": 3.85,
+    "top_defects": [
+      {"type": "dimensional_variance", "count": 78},
+      {"type": "surface_scratches", "count": 52},
+      {"type": "incomplete_weld", "count": 31},
+      {"type": "color_mismatch", "count": 24}
+    ],
+    "disposition": "MIXED - See individual batches"
+  },
+  "batches": {
+    "B-2040": {
+      "batch_id": "B-2040",
+      "product_code": "WGT-A-500",
+      "line_id": "Line_1",
+      "units_produced": 850,
+      "units_inspected": 850,
+      "defects_found": 3,
+      "defect_rate": 0.4,
+      "top_defect_type": "minor_surface_scratch",
+      "inspector_name": "Jennifer Wu",
+      "inspection_time": "2024-02-15T08:30:00Z",
+      "disposition": "RELEASE",
+      "notes": "Excellent batch quality. All defects cosmetic only, within acceptable limits."
+    },
+    "B-2041": {
+      "batch_id": "B-2041",
+      "product_code": "WGT-B-300",
+      "line_id": "Line_2",
+      "units_produced": 920,
+      "units_inspected": 920,
+      "defects_found": 69,
+      "defect_rate": 7.5,
+      "top_defect_type": "dimensional_variance",
+      "inspector_name": "Robert Kim",
+      "inspection_time": "2024-02-15T10:15:00Z",
+      "disposition": "REWORK",
+      "notes": "CRITICAL: High defect rate due to calibration drift on forming station. Dimensional errors 0.8mm-1.2mm out of tolerance. Units can be re-machined. Root cause: tooling wear on Line 2 forming die."
+    },
+    "B-2042": {
+      "batch_id": "B-2042",
+      "product_code": "WGT-C-200",
+      "line_id": "Line_3",
+      "units_produced": 312,
+      "units_inspected": 312,
+      "defects_found": 7,
+      "defect_rate": 2.1,
+      "top_defect_type": "incomplete_weld",
+      "inspector_name": "Maria Santos",
+      "inspection_time": "2024-02-15T09:45:00Z",
+      "disposition": "REVIEW",
+      "notes": "Borderline batch - defect rate slightly above 2% threshold. All defects are incomplete welds, possibly due to declining welding wire quality or machine issue before shutdown. Supervisor review required before release."
+    },
+    "B-2043": {
+      "batch_id": "B-2043",
+      "product_code": "WGT-A-500",
+      "line_id": "Line_1",
+      "units_produced": 780,
+      "units_inspected": 780,
+      "defects_found": 7,
+      "defect_rate": 0.9,
+      "top_defect_type": "color_variation",
+      "inspector_name": "Jennifer Wu",
+      "inspection_time": "2024-02-15T12:00:00Z",
+      "disposition": "RELEASE",
+      "notes": "Minor color variations within acceptable Delta E tolerance. Batch meets all functional requirements."
+    },
+    "B-2044": {
+      "batch_id": "B-2044",
+      "product_code": "WGT-D-150",
+      "line_id": "Line_4",
+      "units_produced": 401,
+      "units_inspected": 401,
+      "defects_found": 49,
+      "defect_rate": 12.3,
+      "top_defect_type": "surface_defect_cracking",
+      "inspector_name": "David Ochoa",
+      "inspection_time": "2024-02-15T11:20:00Z",
+      "disposition": "SCRAP",
+      "notes": "REJECT ENTIRE BATCH: Severe surface cracking defects indicating material contamination or heat treat failure. Defects are structural and cannot be reworked. Estimated scrap cost: $6,015. Quarantine batch immediately. Notify QA manager and production engineering."
+    },
+    "B-2045": {
+      "batch_id": "B-2045",
+      "product_code": "WGT-B-300",
+      "line_id": "Line_2",
+      "units_produced": 537,
+      "units_inspected": 537,
+      "defects_found": 3,
+      "defect_rate": 0.6,
+      "top_defect_type": "label_placement",
+      "inspector_name": "Robert Kim",
+      "inspection_time": "2024-02-15T13:45:00Z",
+      "disposition": "RELEASE",
+      "notes": "Clean batch. Minor label placement errors easily corrected. No functional defects."
+    }
+  }
+}

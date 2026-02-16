@@ -1,0 +1,90 @@
+{
+  "E-412": {
+    "error_code": "E-412",
+    "description": "Hydraulic Pressure Drop - System Below Operating Threshold",
+    "root_cause": "Hydraulic pump seal failure causing pressure loss in main actuator circuit",
+    "corrective_action": "1. Isolate hydraulic system and depressurize. 2. Replace pump seal assembly (Part# HP-SEAL-200). 3. Refill hydraulic fluid to spec level. 4. Run pressure test cycle before resuming production.",
+    "sop_reference": "SOP-HYDR-005",
+    "priority": "HIGH",
+    "estimated_downtime_mins": 90,
+    "parts_required": ["HP-SEAL-200", "HYDRAULIC-FLUID-ISO46"],
+    "safety_precautions": "LOCKOUT/TAGOUT required. Wear safety glasses and gloves. Hydraulic fluid under pressure can cause injection injuries."
+  },
+  "E-201": {
+    "error_code": "E-201",
+    "description": "Conveyor Belt Misalignment - Tracking Error Detected",
+    "root_cause": "Roller bearing wear on return idler causing belt drift to left side",
+    "corrective_action": "1. Stop conveyor and lock out power. 2. Inspect and replace worn idler bearing (Station 7). 3. Re-align belt using tension adjustment bolts. 4. Run empty belt cycle to verify tracking.",
+    "sop_reference": "SOP-CONV-012",
+    "priority": "MEDIUM",
+    "estimated_downtime_mins": 45,
+    "parts_required": ["BEARING-6205-2RS", "IDLER-ROLLER-7IN"],
+    "safety_precautions": "LOCKOUT/TAGOUT required. Do not attempt to adjust belt while in motion. Pinch point hazard."
+  },
+  "E-305": {
+    "error_code": "E-305",
+    "description": "Temperature Overrun - Heating Zone 2 Exceeds Setpoint",
+    "root_cause": "Thermocouple sensor drift providing inaccurate readings to PID controller",
+    "corrective_action": "1. Verify actual temperature with calibrated IR thermometer. 2. Replace thermocouple sensor. 3. Re-calibrate PID loop parameters. 4. Monitor for 30 minutes before resuming production.",
+    "sop_reference": "SOP-TEMP-008",
+    "priority": "HIGH",
+    "estimated_downtime_mins": 60,
+    "parts_required": ["THERMOCOUPLE-K-TYPE-12IN", "THERMAL-PASTE"],
+    "safety_precautions": "Hot surface hazard. Allow heating zone to cool below 150°F before sensor replacement. Wear heat-resistant gloves."
+  },
+  "E-118": {
+    "error_code": "E-118",
+    "description": "Proximity Sensor Failure - Part Detection Lost",
+    "root_cause": "Metal chips accumulation on sensor face blocking detection beam",
+    "corrective_action": "1. Clean sensor face with lint-free cloth and isopropyl alcohol. 2. If cleaning fails, replace sensor. 3. Verify detection distance with test part. 4. Check sensor mounting bracket for looseness.",
+    "sop_reference": "SOP-SENS-003",
+    "priority": "LOW",
+    "estimated_downtime_mins": 15,
+    "parts_required": ["PROX-SENSOR-M18-8MM", "ISOPROPYL-ALCOHOL"],
+    "safety_precautions": "LOCKOUT/TAGOUT required. Sensor operates at 24VDC - low voltage but verify power off before replacement."
+  },
+  "E-550": {
+    "error_code": "E-550",
+    "description": "Pneumatic System Leak - Air Pressure Decay Detected",
+    "root_cause": "Cracked air line fitting at Station 4 actuator causing continuous air loss",
+    "corrective_action": "1. Locate leak using soapy water spray test. 2. Isolate affected branch circuit. 3. Replace cracked fitting with brass push-to-connect fitting. 4. Pressure test repaired section at 90 PSI.",
+    "sop_reference": "SOP-PNEU-007",
+    "priority": "MEDIUM",
+    "estimated_downtime_mins": 30,
+    "parts_required": ["FITTING-PTC-6MM", "TEFLON-TAPE", "TUBING-6MM-NYLON"],
+    "safety_precautions": "Depressurize system before working on fittings. Compressed air can cause serious injury. Always wear safety glasses."
+  },
+  "E-623": {
+    "error_code": "E-623",
+    "description": "Motor Overload Trip - Current Limit Exceeded",
+    "root_cause": "Excessive mechanical load due to seized gearbox bearing",
+    "corrective_action": "1. Manually rotate motor shaft to confirm mechanical bind. 2. Disassemble gearbox and inspect bearings. 3. Replace seized bearing. 4. Lubricate per spec. 5. Reset overload and test under no-load condition.",
+    "sop_reference": "SOP-MOTOR-015",
+    "priority": "HIGH",
+    "estimated_downtime_mins": 120,
+    "parts_required": ["BEARING-6308", "GEAR-LUBE-ISO220", "MOTOR-COUPLING"],
+    "safety_precautions": "LOCKOUT/TAGOUT required. Disconnect all three phases. Verify zero voltage with multimeter. Heavy component - use hoist for gearbox removal."
+  },
+  "E-777": {
+    "error_code": "E-777",
+    "description": "PLC Communication Error - Network Timeout on Node 5",
+    "root_cause": "Ethernet cable damaged near cable tray causing intermittent connection loss",
+    "corrective_action": "1. Verify cable continuity with network tester. 2. Replace damaged Cat6 cable section. 3. Re-terminate RJ45 connectors. 4. Verify link status LED on PLC and switch. 5. Test communication with ping command.",
+    "sop_reference": "SOP-PLC-020",
+    "priority": "HIGH",
+    "estimated_downtime_mins": 40,
+    "parts_required": ["CAT6-CABLE-25FT", "RJ45-CONNECTOR-SHIELDED"],
+    "safety_precautions": "Low voltage network - no lockout required. Avoid working near high voltage panels. Use insulated tools."
+  },
+  "E-099": {
+    "error_code": "E-099",
+    "description": "Lubrication System Fault - Oil Flow Rate Below Minimum",
+    "root_cause": "Clogged oil filter restricting flow to critical bearing points",
+    "corrective_action": "1. Check oil reservoir level. 2. Replace oil filter cartridge. 3. Verify pump operation and pressure gauge reading. 4. Inspect distribution block for blockages. 5. Run manual lube cycle to verify flow to all points.",
+    "sop_reference": "SOP-LUBE-004",
+    "priority": "MEDIUM",
+    "estimated_downtime_mins": 25,
+    "parts_required": ["OIL-FILTER-10MICRON", "LUBRICANT-ISO68"],
+    "safety_precautions": "Wear nitrile gloves when handling oil. Avoid skin contact. Clean up any spills immediately to prevent slip hazard."
+  }
+}

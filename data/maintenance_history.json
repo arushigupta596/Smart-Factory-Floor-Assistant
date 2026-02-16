@@ -1,0 +1,284 @@
+{
+  "M-07": [
+    {
+      "date": "2024-02-10",
+      "type": "PREVENTIVE",
+      "technician": "Tom Rodriguez",
+      "duration_mins": 120,
+      "parts_replaced": ["AIR-FILTER-A200", "BELT-V-3L"],
+      "notes": "Quarterly PM completed. Belt tension adjusted. All lubrication points serviced.",
+      "cost_usd": 245.00
+    },
+    {
+      "date": "2024-01-22",
+      "type": "CORRECTIVE",
+      "technician": "Amy Zhang",
+      "duration_mins": 90,
+      "parts_replaced": ["PROXIMITY-SENSOR-M18"],
+      "notes": "Replaced faulty proximity sensor causing false part rejects.",
+      "cost_usd": 180.00
+    },
+    {
+      "date": "2024-01-05",
+      "type": "PREVENTIVE",
+      "technician": "Tom Rodriguez",
+      "duration_mins": 60,
+      "parts_replaced": [],
+      "notes": "Monthly inspection and lubrication cycle. No issues found.",
+      "cost_usd": 85.00
+    },
+    {
+      "date": "2023-12-18",
+      "type": "EMERGENCY",
+      "technician": "Carlos Mendez",
+      "duration_mins": 180,
+      "parts_replaced": ["MOTOR-COUPLING", "SHAFT-SEAL"],
+      "notes": "Emergency repair - coupling failure during shift. Replaced coupling and damaged seal.",
+      "cost_usd": 520.00
+    },
+    {
+      "date": "2023-11-30",
+      "type": "PREVENTIVE",
+      "technician": "Amy Zhang",
+      "duration_mins": 90,
+      "parts_replaced": ["OIL-FILTER-10MICRON"],
+      "notes": "Replaced hydraulic filter. System pressure normal.",
+      "cost_usd": 125.00
+    }
+  ],
+  "M-03": [
+    {
+      "date": "2024-02-12",
+      "type": "CORRECTIVE",
+      "technician": "Carlos Mendez",
+      "duration_mins": 75,
+      "parts_replaced": ["THERMOCOUPLE-K-TYPE"],
+      "notes": "Replaced drift thermocouple in heating zone 2. Calibrated PID loop.",
+      "cost_usd": 165.00
+    },
+    {
+      "date": "2024-01-28",
+      "type": "PREVENTIVE",
+      "technician": "Tom Rodriguez",
+      "duration_mins": 45,
+      "parts_replaced": [],
+      "notes": "Weekly temperature calibration check. All zones within spec.",
+      "cost_usd": 65.00
+    },
+    {
+      "date": "2024-01-14",
+      "type": "CORRECTIVE",
+      "technician": "Amy Zhang",
+      "duration_mins": 120,
+      "parts_replaced": ["HEATING-ELEMENT-2KW", "CONTACTOR-25A"],
+      "notes": "Replaced failed heating element and burned contactor.",
+      "cost_usd": 410.00
+    },
+    {
+      "date": "2023-12-20",
+      "type": "PREVENTIVE",
+      "technician": "Carlos Mendez",
+      "duration_mins": 60,
+      "parts_replaced": ["THERMAL-FUSE"],
+      "notes": "Routine thermal system inspection. Replaced precautionary fuse.",
+      "cost_usd": 95.00
+    },
+    {
+      "date": "2023-11-25",
+      "type": "EMERGENCY",
+      "technician": "Tom Rodriguez",
+      "duration_mins": 210,
+      "parts_replaced": ["CONTROL-BOARD-REV-C", "RELAY-SOCKET"],
+      "notes": "Emergency - control board failure caused uncontrolled heating. Replaced board and damaged relay socket.",
+      "cost_usd": 890.00
+    }
+  ],
+  "M-11": [
+    {
+      "date": "2024-02-14",
+      "type": "PREVENTIVE",
+      "technician": "Amy Zhang",
+      "duration_mins": 30,
+      "parts_replaced": [],
+      "notes": "Bi-weekly lubrication service. Checked all grease fittings.",
+      "cost_usd": 45.00
+    },
+    {
+      "date": "2024-02-01",
+      "type": "PREVENTIVE",
+      "technician": "Carlos Mendez",
+      "duration_mins": 90,
+      "parts_replaced": ["CHAIN-#40-10FT"],
+      "notes": "Replaced drive chain showing excessive wear. Aligned sprockets.",
+      "cost_usd": 210.00
+    },
+    {
+      "date": "2024-01-18",
+      "type": "CORRECTIVE",
+      "technician": "Tom Rodriguez",
+      "duration_mins": 60,
+      "parts_replaced": ["BEARING-6205-2RS"],
+      "notes": "Replaced noisy bearing in drive assembly.",
+      "cost_usd": 140.00
+    },
+    {
+      "date": "2024-01-03",
+      "type": "PREVENTIVE",
+      "technician": "Amy Zhang",
+      "duration_mins": 45,
+      "parts_replaced": [],
+      "notes": "New year inspection. All systems operational.",
+      "cost_usd": 65.00
+    },
+    {
+      "date": "2023-12-10",
+      "type": "CORRECTIVE",
+      "technician": "Carlos Mendez",
+      "duration_mins": 150,
+      "parts_replaced": ["GEARBOX-5:1-RATIO", "MOTOR-MOUNT"],
+      "notes": "Replaced failed gearbox. Discovered cracked motor mount, replaced as well.",
+      "cost_usd": 755.00
+    }
+  ],
+  "C-2": [
+    {
+      "date": "2024-02-13",
+      "type": "CORRECTIVE",
+      "technician": "Tom Rodriguez",
+      "duration_mins": 45,
+      "parts_replaced": ["IDLER-ROLLER-7IN"],
+      "notes": "Replaced worn idler roller causing belt tracking issues.",
+      "cost_usd": 115.00
+    },
+    {
+      "date": "2024-01-30",
+      "type": "PREVENTIVE",
+      "technician": "Carlos Mendez",
+      "duration_mins": 60,
+      "parts_replaced": [],
+      "notes": "Monthly belt tension and tracking adjustment. Cleaned debris from rollers.",
+      "cost_usd": 75.00
+    },
+    {
+      "date": "2024-01-16",
+      "type": "EMERGENCY",
+      "technician": "Amy Zhang",
+      "duration_mins": 95,
+      "parts_replaced": ["CONVEYOR-BELT-24IN-20FT"],
+      "notes": "Emergency - belt tear during production. Replaced entire belt section.",
+      "cost_usd": 680.00
+    },
+    {
+      "date": "2023-12-28",
+      "type": "PREVENTIVE",
+      "technician": "Tom Rodriguez",
+      "duration_mins": 40,
+      "parts_replaced": [],
+      "notes": "End of year inspection. Lubricated drive shaft bearings.",
+      "cost_usd": 60.00
+    },
+    {
+      "date": "2023-12-05",
+      "type": "CORRECTIVE",
+      "technician": "Carlos Mendez",
+      "duration_mins": 75,
+      "parts_replaced": ["VFD-3HP-480V"],
+      "notes": "Replaced VFD showing overheat faults. Verified cooling fan operation.",
+      "cost_usd": 425.00
+    }
+  ],
+  "C-4": [
+    {
+      "date": "2024-02-11",
+      "type": "PREVENTIVE",
+      "technician": "Amy Zhang",
+      "duration_mins": 50,
+      "parts_replaced": ["PHOTOELECTRIC-SENSOR"],
+      "notes": "Replaced aging photo eye sensor as preventive measure. Cleaned lens on backup sensor.",
+      "cost_usd": 95.00
+    },
+    {
+      "date": "2024-01-25",
+      "type": "CORRECTIVE",
+      "technician": "Tom Rodriguez",
+      "duration_mins": 85,
+      "parts_replaced": ["BRAKE-PAD-SET", "BRAKE-SPRING"],
+      "notes": "Replaced worn brake pads and broken spring. Adjusted brake gap.",
+      "cost_usd": 220.00
+    },
+    {
+      "date": "2024-01-08",
+      "type": "PREVENTIVE",
+      "technician": "Carlos Mendez",
+      "duration_mins": 35,
+      "parts_replaced": [],
+      "notes": "Weekly inspection. Tightened loose mounting bolts on motor base.",
+      "cost_usd": 50.00
+    },
+    {
+      "date": "2023-12-22",
+      "type": "EMERGENCY",
+      "technician": "Amy Zhang",
+      "duration_mins": 140,
+      "parts_replaced": ["MOTOR-1.5HP-3PHASE", "STARTER-CONTACTOR"],
+      "notes": "Emergency - motor winding failure. Replaced motor and damaged contactor.",
+      "cost_usd": 815.00
+    },
+    {
+      "date": "2023-11-28",
+      "type": "PREVENTIVE",
+      "technician": "Tom Rodriguez",
+      "duration_mins": 55,
+      "parts_replaced": ["LIMIT-SWITCH-2POS"],
+      "notes": "Replaced limit switch showing intermittent operation. Tested e-stop circuit.",
+      "cost_usd": 105.00
+    }
+  ],
+  "P-01": [
+    {
+      "date": "2024-02-15",
+      "type": "CORRECTIVE",
+      "technician": "Carlos Mendez",
+      "duration_mins": 65,
+      "parts_replaced": ["SOLENOID-VALVE-24VDC"],
+      "notes": "Replaced stuck solenoid valve on air cylinder 3.",
+      "cost_usd": 145.00
+    },
+    {
+      "date": "2024-02-02",
+      "type": "PREVENTIVE",
+      "technician": "Amy Zhang",
+      "duration_mins": 70,
+      "parts_replaced": ["AIR-FILTER-REGULATOR"],
+      "notes": "Replaced clogged air filter/regulator combo. Set pressure to 85 PSI.",
+      "cost_usd": 175.00
+    },
+    {
+      "date": "2024-01-20",
+      "type": "CORRECTIVE",
+      "technician": "Tom Rodriguez",
+      "duration_mins": 50,
+      "parts_replaced": ["FITTING-PTC-6MM"],
+      "notes": "Replaced cracked push-to-connect fittings causing air leaks.",
+      "cost_usd": 85.00
+    },
+    {
+      "date": "2024-01-06",
+      "type": "PREVENTIVE",
+      "technician": "Carlos Mendez",
+      "duration_mins": 40,
+      "parts_replaced": [],
+      "notes": "Weekly pneumatic system inspection. Drained water from air tank.",
+      "cost_usd": 55.00
+    },
+    {
+      "date": "2023-12-15",
+      "type": "EMERGENCY",
+      "technician": "Amy Zhang",
+      "duration_mins": 110,
+      "parts_replaced": ["PNEUMATIC-CYLINDER-2IN-BORE", "MOUNTING-BRACKET"],
+      "notes": "Emergency - cylinder rod bent due to side load. Replaced cylinder and reinforced mounting.",
+      "cost_usd": 565.00
+    }
+  ]
+}

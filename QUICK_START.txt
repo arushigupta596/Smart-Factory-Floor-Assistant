@@ -1,0 +1,219 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║             🏭 SMART FACTORY FLOOR ASSISTANT - QUICK START 🏭                ║
+║                                                                              ║
+║                    Zero-Cost POC Built with Google ADK                       ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+
+📋 WHAT YOU HAVE
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ 4 Production Lines with realistic mock data (Line_1 through Line_4)
+✅ 8 Machine Error Codes with full diagnostic information
+✅ 6 Machines with complete maintenance history (30 events total)
+✅ 6 Quality Batches with varying defect rates and dispositions
+✅ 3 Specialist AI Agents (Production, Maintenance, Quality)
+✅ 1 Root Orchestrator Agent (Smart routing + synthesis)
+✅ 6 Data Access Tools (All JSON-based for POC)
+
+
+🚀 STEP 1: GET YOUR FREE API KEY
+═══════════════════════════════════════════════════════════════════════════════
+
+Visit: https://aistudio.google.com/apikey
+
+   1. Click "Create API Key"
+   2. Copy your key
+   3. Open the .env file in this directory
+   4. Replace PASTE_YOUR_KEY_HERE with your actual key
+
+💡 No credit card needed! This is 100% free using Google AI Studio.
+
+
+🔧 STEP 2: VERIFY INSTALLATION
+═══════════════════════════════════════════════════════════════════════════════
+
+From this directory, run:
+
+   python3 test_agent_system.py
+
+You should see all tests pass. If you get import errors, run:
+
+   pip install google-adk>=0.5.0
+
+
+🌐 STEP 3: LAUNCH THE WEB UI
+═══════════════════════════════════════════════════════════════════════════════
+
+From this directory, run:
+
+   adk web
+
+Then open your browser to: http://localhost:8000
+
+Select "factory_floor_agent" from the dropdown.
+
+
+🎯 STEP 4: RUN THE 5 DEMO QUERIES
+═══════════════════════════════════════════════════════════════════════════════
+
+Copy and paste these queries one at a time:
+
+
+┌─ Query 1 (Warm-up) ────────────────────────────────────────────────────────┐
+│                                                                            │
+│  Which production lines are currently running and which are down?         │
+│                                                                            │
+└────────────────────────────────────────────────────────────────────────────┘
+
+
+┌─ Query 2 (Fault Diagnosis) ────────────────────────────────────────────────┐
+│                                                                            │
+│  Line 3 is down with error code E-412. What's wrong and what does the     │
+│  maintenance team need to do?                                             │
+│                                                                            │
+└────────────────────────────────────────────────────────────────────────────┘
+
+
+┌─ Query 3 (Quality Decision) ───────────────────────────────────────────────┐
+│                                                                            │
+│  Should we release Batch B-2041? Give me your recommendation.             │
+│                                                                            │
+└────────────────────────────────────────────────────────────────────────────┘
+
+
+┌─ Query 4 (Analysis) ───────────────────────────────────────────────────────┐
+│                                                                            │
+│  Line 4 has an OEE of 67%. Walk me through what that means and what       │
+│  we should investigate.                                                   │
+│                                                                            │
+└────────────────────────────────────────────────────────────────────────────┘
+
+
+┌─ Query 5 (THE SHOWSTOPPER - Multi-Agent) ──────────────────────────────────┐
+│                                                                            │
+│  Give me a complete shift status report — production performance, any     │
+│  active faults, and quality summary. What are the top 3 things I need     │
+│  to act on right now?                                                     │
+│                                                                            │
+└────────────────────────────────────────────────────────────────────────────┘
+
+
+🎬 WHAT TO SHOW CLIENTS
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Start with Query 5 — it's the most impressive
+
+2. After it runs, click the "Trace" tab in the UI
+   → Shows how the root agent coordinated 3 specialists automatically
+
+3. Point out:
+   ✓ One complex question triggered 3 specialized agents
+   ✓ Each agent used its own tools independently
+   ✓ Root agent synthesized all responses into one coherent answer
+   ✓ All data is realistic manufacturing scenarios
+
+4. Run Query 2 or 3 to show specialist expertise
+   → Maintenance agent gives full SOP, parts list, safety procedures
+   → Quality agent applies disposition rules (RELEASE/REWORK/SCRAP)
+
+
+📊 THE DATA (All Mock JSON Files)
+═══════════════════════════════════════════════════════════════════════════════
+
+Production Lines (data/production_lines.json):
+   - Line_1: RUNNING, OEE 84%, 876/1200 units (73%)
+   - Line_2: RUNNING, OEE 91%, 940/1000 units (94%)
+   - Line_3: DOWN, OEE 0%, 312/800 units (39%), Alarm E-412
+   - Line_4: RUNNING, OEE 67%, 401/600 units (67%), Alarm E-201
+
+Machine Faults (data/machine_faults.json):
+   - E-412: Hydraulic Pressure Drop (HIGH priority, 90 min downtime)
+   - E-201: Conveyor Misalignment (MEDIUM priority, 45 min downtime)
+   + 6 more realistic error codes
+
+Maintenance History (data/maintenance_history.json):
+   - M-07, M-03, M-11, C-2, C-4, P-01
+   - 5 events per machine (mix of PREVENTIVE/CORRECTIVE/EMERGENCY)
+   - Full parts list, technician names, costs
+
+Quality Batches (data/quality_logs.json):
+   - B-2040: 0.4% defect rate → RELEASE
+   - B-2041: 7.5% defect rate → REWORK (the problem batch!)
+   - B-2042: 2.1% defect rate → REVIEW (borderline)
+   - B-2044: 12.3% defect rate → SCRAP (critical!)
+   + 2 more clean batches
+
+
+🏗️ ARCHITECTURE
+═══════════════════════════════════════════════════════════════════════════════
+
+Root Agent: factory_floor_agent
+   ├─ Tool: get_shift_performance_report()
+   │
+   ├─ Sub-Agent: production_monitor_agent
+   │    ├─ Tool: get_production_status()
+   │    └─ Tool: get_active_alarms()
+   │
+   ├─ Sub-Agent: maintenance_agent
+   │    ├─ Tool: get_fault_details()
+   │    └─ Tool: get_maintenance_history()
+   │
+   └─ Sub-Agent: quality_agent
+        └─ Tool: get_quality_summary()
+
+
+🚀 NEXT STEPS TO PRODUCTIONIZE
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Replace JSON file reads in factory_agent/tools.py with:
+   → REST API calls to your MES system
+   → SQL queries to production database
+   → SCADA system integration
+
+2. Update .env:
+   GOOGLE_GENAI_USE_VERTEXAI=TRUE
+
+3. Deploy to Vertex AI Agent Engine
+   → Same agents, same tools, real data
+   → No code changes to agent logic!
+
+
+💡 WHY THIS IS POWERFUL
+═══════════════════════════════════════════════════════════════════════════════
+
+✓ Multi-Agent: Shows sophisticated agent orchestration
+✓ Domain Experts: Each agent has specialized knowledge
+✓ Realistic Data: Manufacturing scenarios clients recognize
+✓ Zero Cost: Free tier means unlimited demos
+✓ Production-Ready: Architecture scales to real deployment
+✓ Tool Use: Agents dynamically call tools based on questions
+
+
+📝 FILE STRUCTURE
+═══════════════════════════════════════════════════════════════════════════════
+
+smart_factory_poc/
+├── .env                          ← Put your API key here
+├── SETUP_GUIDE.md                ← Detailed setup instructions
+├── QUICK_START.txt               ← This file
+├── test_agent_system.py          ← Test all tools/agents
+├── requirements.txt              ← google-adk>=0.5.0
+├── data/
+│   ├── production_lines.json    ← 4 lines with OEE, targets, alarms
+│   ├── machine_faults.json      ← 8 error codes with diagnostics
+│   ├── maintenance_history.json ← 6 machines, 30 events
+│   └── quality_logs.json        ← 6 batches + shift summary
+└── factory_agent/
+    ├── __init__.py
+    ├── tools.py                 ← 6 data access functions
+    └── agent.py                 ← 4 agents (3 specialists + 1 root)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                              🎉 YOU'RE READY! 🎉
+═══════════════════════════════════════════════════════════════════════════════
+
+Get your free API key from https://aistudio.google.com/apikey — no credit card needed!
