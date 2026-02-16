@@ -1,4 +1,4 @@
-# 🏭 Smart Factory Floor Assistant
+# Smart Factory Floor Assistant
 
 **A multi-agent AI system for intelligent manufacturing operations using Google ADK**
 
@@ -6,7 +6,7 @@ Built with Google Agent Development Kit (ADK) and Gemini 2.5 Flash, this POC dem
 
 ---
 
-## 🎯 What It Does
+## What It Does
 
 The Smart Factory Floor Assistant answers complex manufacturing questions by orchestrating three specialist agents:
 
@@ -29,7 +29,7 @@ The Smart Factory Floor Assistant answers complex manufacturing questions by orc
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 Root Agent (factory_floor_agent)
@@ -51,7 +51,7 @@ Root Agent (factory_floor_agent)
 
 ---
 
-## 📊 Mock Data
+## Mock Data
 
 Realistic manufacturing scenarios for demos:
 
@@ -68,7 +68,7 @@ Realistic manufacturing scenarios for demos:
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Get Free API Key
 Visit https://aistudio.google.com/apikey (no credit card needed!)
@@ -149,13 +149,13 @@ smart_factory_poc/
 
 ---
 
-## 💰 Cost
+## Cost
 
 **$0** - Uses Gemini 2.5 Flash free tier via Google AI Studio
 
 ---
 
-## 🚀 Production Deployment
+## Production Deployment
 
 ### Replace Mock Data with Real APIs
 
@@ -208,7 +208,7 @@ See deployment cost comparison in docs.
 
 ---
 
-## 🎯 Use Cases
+## Use Cases
 
 **Perfect for:**
 - Manufacturing POCs and demos
@@ -225,23 +225,7 @@ See deployment cost comparison in docs.
 
 ---
 
-## 🤝 Contributing
-
-This is a POC/demo project. Feel free to:
-- Fork and adapt for your manufacturing domain
-- Replace mock data with real integrations
-- Extend with additional agents (safety, inventory, scheduling, etc.)
-- Deploy to production with real data
-
----
-
-## 📄 License
-
-MIT License - See LICENSE file
-
----
-
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Built with Google Agent Development Kit (ADK)
 - Powered by Gemini 2.5 Flash
@@ -257,6 +241,3 @@ Open an issue or check the SETUP_GUIDE.md for detailed instructions.
 
 ---
 
-Made with ❤️ for the manufacturing community
-
-**Co-Authored-By: Claude Sonnet 4.5**
